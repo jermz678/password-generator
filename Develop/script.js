@@ -12,28 +12,31 @@ var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var smallLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var bigLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-
 //prompts for user choices
+var userChoiceLength = prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!")
 
 
-var userChoiceLength = prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!");
 
-//var userChoiceBigLetters = prompt("Would you like uppercase letters in your password? Type Y for yes, and N for no. ");
+var userChoiceBigLetters = prompt("Would you like uppercase letters in your password? Type Y for yes, and N for no. ");
 //var userChoiceSmallLetters = prompt("Would you like lowercase letter in your password? Type Y for yes, and N for no. ");
 //var userChoiceNumbers = prompt("Would you like numbers in your password? Type Y for yes, and N for no. ");
 //var userChoiceSymbols = prompt("would you like symbols in your password?Type Y for yes, and N for no. ");
-console.log(userChoiceLength)
 
-//pulling characters from array
+//creating password based on choices
 function generatePassword(){
   //create an empty array
   var ar = [];
+  
   //making sure user chooses between 8 and 128
-  while ( userChoiceLength < 7 || userChoiceLength > 128){
+    while ( userChoiceLength < 8 || userChoiceLength > 128){
     alert( "please choose again");
     userChoiceLength= prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!");
-  } 
-    // getting userchoice to fil empty array
+    } 
+    while ( userChoiceBigLetters != "y" && userChoiceBigLetters != "Y" && userChoiceBigLetters != "n" && userChoiceBigLetters != "N"){
+    alert ( "please choose again");
+    userChoiceBigLetters = prompt("Would you like uppercase letters in your password? Type Y for yes, and N for no. ");
+    }
+    // getting userchoice to fill empty array
     for (i = 0; i < userChoiceLength; i++){
       ar.push(allCharacters[Math.floor(Math.random() * allCharacters.length)]); 
     }
@@ -47,6 +50,9 @@ console.log(generatePassword())
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+
+
+ 
 
 
 // Write password to the #password input
