@@ -14,33 +14,37 @@ var bigLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M
 
 
 //prompts for user choices
+
+
 var userChoiceLength = prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!");
-prompt("Would you like uppercase letters in your password? Type Y for yes, and N for no. ");
-prompt("Would you like lowercase letter in your password? Type Y for yes, and N for no. ");
-prompt("Would you like numbers in your password? Type Y for yes, and N for no. ");
-prompt("would you like symbols in your password?Type Y for yes, and N for no. ");
 
-//user choices
-
-var userChoiceSymbols = 1;
-var userChoiceNumbers = 1;
-var userChoiceSmallLetters = 1;
-var userChoiceBigLetters = 1;
+//var userChoiceBigLetters = prompt("Would you like uppercase letters in your password? Type Y for yes, and N for no. ");
+//var userChoiceSmallLetters = prompt("Would you like lowercase letter in your password? Type Y for yes, and N for no. ");
+//var userChoiceNumbers = prompt("Would you like numbers in your password? Type Y for yes, and N for no. ");
+//var userChoiceSymbols = prompt("would you like symbols in your password?Type Y for yes, and N for no. ");
+console.log(userChoiceLength)
 
 //pulling characters from array
 function generatePassword(){
   //create an empty array
-    var ar = [];
-    // getting 8 random character to fil empty array
+  var ar = [];
+  //making sure user chooses between 8 and 128
+  while ( userChoiceLength < 7 || userChoiceLength > 128){
+    alert( "please choose again");
+    userChoiceLength= prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!");
+  } 
+    // getting userchoice to fil empty array
     for (i = 0; i < userChoiceLength; i++){
-      ar.push(allCharacters[Math.floor(Math.random() * allCharacters.length)]);
-      console.log(allCharacters.length)
+      ar.push(allCharacters[Math.floor(Math.random() * allCharacters.length)]); 
     }
       // taking commas out of ar array
+      console.log(ar);
     return ar.join("");
+    
 };
 
 console.log(generatePassword())
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
