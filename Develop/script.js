@@ -13,21 +13,33 @@ var smallLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
 var bigLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 
+//prompts for user choices
+var userChoiceLength = prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!");
+prompt("Would you like uppercase letters in your password? Type Y for yes, and N for no. ");
+prompt("Would you like lowercase letter in your password? Type Y for yes, and N for no. ");
+prompt("Would you like numbers in your password? Type Y for yes, and N for no. ");
+prompt("would you like symbols in your password?Type Y for yes, and N for no. ");
+
+//user choices
+
+var userChoiceSymbols = 1;
+var userChoiceNumbers = 1;
+var userChoiceSmallLetters = 1;
+var userChoiceBigLetters = 1;
+
 //pulling characters from array
 function generatePassword(){
   //create an empty array
     var ar = [];
     // getting 8 random character to fil empty array
-    for (i = 0; i < 8; i++){
+    for (i = 0; i < userChoiceLength; i++){
       ar.push(allCharacters[Math.floor(Math.random() * allCharacters.length)]);
       console.log(allCharacters.length)
     }
       // taking commas out of ar array
     return ar.join("");
-    //if(ar.length < 8){
-    //
-   
 };
+
 console.log(generatePassword())
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
