@@ -14,13 +14,10 @@ var bigLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M
 
 //prompts for user choices
 var userChoiceLength = prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!")
-
-
-
 var userChoiceBigLetters = prompt("Would you like uppercase letters in your password? Type Y for yes, and N for no. ");
-//var userChoiceSmallLetters = prompt("Would you like lowercase letter in your password? Type Y for yes, and N for no. ");
-//var userChoiceNumbers = prompt("Would you like numbers in your password? Type Y for yes, and N for no. ");
-//var userChoiceSymbols = prompt("would you like symbols in your password?Type Y for yes, and N for no. ");
+var userChoiceSmallLetters = prompt("Would you like lowercase letter in your password? Type Y for yes, and N for no. ");
+var userChoiceNumbers = prompt("Would you like numbers in your password? Type Y for yes, and N for no. ");
+var userChoiceSymbols = prompt("would you like symbols in your password?Type Y for yes, and N for no. ");
 
 //creating password based on choices
 function generatePassword(){
@@ -32,10 +29,26 @@ function generatePassword(){
     alert( "please choose again");
     userChoiceLength= prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!");
     } 
+    // choosing yes or no for each prompt or looping back to same question
     while ( userChoiceBigLetters != "y" && userChoiceBigLetters != "Y" && userChoiceBigLetters != "n" && userChoiceBigLetters != "N"){
     alert ( "please choose again");
     userChoiceBigLetters = prompt("Would you like uppercase letters in your password? Type Y for yes, and N for no. ");
     }
+
+    while ( userChoiceSmallLetters != "y" && userChoiceSmallLetters != "Y" && userChoiceSmallLetters != "n" && userChoiceSmallLetters != "N"){
+      alert ( "please choose again");
+      userChoiceSmallLetters = prompt("Would you like lower letters in your password? Type Y for yes, and N for no. ");
+    }
+
+    while ( userChoiceNumbers != "y" && uuserChoiceNumbers != "Y" && userChoiceNumbers != "n" && uuserChoiceNumbers != "N"){
+        alert ( "please choose again");
+        userChoiceNumbers = prompt("Would you like numbers in your password? Type Y for yes, and N for no. ");
+    }
+    while ( userChoiceSymbols != "y" && userChoiceSymbols != "Y" && userChoiceSymbols != "n" && userChoiceSymbols != "N"){
+          alert ( "please choose again");
+          userChoiceSymbols = prompt("Would you like symbols in your password? Type Y for yes, and N for no. ");
+    }
+
     // getting userchoice to fill empty array
     for (i = 0; i < userChoiceLength; i++){
       ar.push(allCharacters[Math.floor(Math.random() * allCharacters.length)]); 
