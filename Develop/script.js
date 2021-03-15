@@ -53,7 +53,7 @@ function generatePassword(){
     }
     // if user chooses nothing
     if(userChoiceSymbols === "n"  && userChoiceNumbers === "n" && userChoiceSmallLetters === "n" && userChoiceBigLetters === "n"){
-        alert("sorry, we can not make you a password.  Please reload page and try again")
+        alert("Sorry, we can not make you a password.  Please try again")
     }
     // if user chooses everything
     if(userChoiceSymbols === "y"  && userChoiceNumbers === "y" && userChoiceSmallLetters === "y" && userChoiceBigLetters === "y"){
@@ -62,7 +62,7 @@ function generatePassword(){
       }
     }
     //if user chooses 3 
-    //creating new arrays based on what user chooses
+    //creating new arrays based on what user chooses .
     var newArray = symbols.concat(numbers, smallLetters);
     var newArray2 = symbols.concat(numbers, bigLetters)
     var newArray3 = numbers.concat(smallLetters, bigLetters)
