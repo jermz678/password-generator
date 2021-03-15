@@ -15,11 +15,11 @@ var bigLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M
 //creating password based on choices
 function generatePassword(){
   var userChoiceLength = prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!");
+  
   //create an empty array
   var ar = [];
-  
   //making sure user chooses between 8 and 128
-    while ( userChoiceLength < 8 || userChoiceLength > 128){
+    while ( userChoiceLength < 8 || userChoiceLength > 128 || isNaN(userChoiceLength) ){
     alert( "please choose again");
     userChoiceLength= prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!");
     } 
@@ -51,10 +51,84 @@ function generatePassword(){
         alert ( "please choose again");
         userChoiceSymbols = prompt("Would you like symbols in your password? Type Y for yes, and N for no. ");
     }
+    // if user chooses nothing
     if(userChoiceSymbols === "n"  && userChoiceNumbers === "n" && userChoiceSmallLetters === "n" && userChoiceBigLetters === "n"){
         alert("sorry, we can not make you a password.  Please reload page and try again")
     }
+    // if user chooses everything
+    if(userChoiceSymbols === "y"  && userChoiceNumbers === "y" && userChoiceSmallLetters === "y" && userChoiceBigLetters === "y"){
+      for (i = 0; i < userChoiceLength; i++){
+        ar.push(allCharacters[Math.floor(Math.random() * allCharacters.length)]); 
+      }
+    }
+    //if user chooses 3 
+    //creating new arrays based on what user chooses
+    var newArray = symbols.concat(numbers, smallLetters);
+    var newArray2 = symbols.concat(numbers, bigLetters)
+    var newArray3 = numbers.concat(smallLetters, bigLetters)
+    var newArray4 = symbols.concat(smallLetters, bigLetters)
+      
+    if(userChoiceSymbols === "y"  && userChoiceNumbers === "y" && userChoiceSmallLetters === "y" && userChoiceBigLetters === "n"){
+        for (i = 0; i < userChoiceLength; i++){
+          ar.push(newArray[Math.floor(Math.random() * newArray.length)]); 
+        }
+      }
+      if(userChoiceSymbols === "y"  && userChoiceNumbers === "y" && userChoiceSmallLetters === "n" && userChoiceBigLetters === "y"){
+        for (i = 0; i < userChoiceLength; i++){
+          ar.push(newArray2[Math.floor(Math.random() * newArray2.length)]); 
+        }
+      }
+      if(userChoiceSymbols === "n"  && userChoiceNumbers === "y" && userChoiceSmallLetters === "y" && userChoiceBigLetters === "y"){
+        for (i = 0; i < userChoiceLength; i++){
+          ar.push(newArray3[Math.floor(Math.random() * newArray3.length)]); 
+        }
+      }
+      if(userChoiceSymbols === "y"  && userChoiceNumbers === "n" && userChoiceSmallLetters === "y" && userChoiceBigLetters === "y"){
+        for (i = 0; i < userChoiceLength; i++){
+          ar.push(newArray4[Math.floor(Math.random() * newArray4.length)]); 
+        }
+      }
+      //if user chooses 2
+      //creating new arrays based on what user chooses
+      var newArray5 = symbols.concat(smallLetters)
+      var newArray6 = symbols.concat(bigLetters)
+      var newArray7 = symbols.concat(numbers)
+      var newArray8 = smallLetters.concat(bigLetters)
+      var newArray9 = smallLetters.concat(numbers)
+      var newArray10 = bigLetters.concat(numbers)
 
+      if(userChoiceSymbols === "y"  && userChoiceNumbers === "n" && userChoiceSmallLetters === "y" && userChoiceBigLetters === "n"){
+        for (i = 0; i < userChoiceLength; i++){
+          ar.push(newArray5[Math.floor(Math.random() * newArray5.length)]); 
+        }
+      }
+      if(userChoiceSymbols === "y"  && userChoiceNumbers === "n" && userChoiceSmallLetters === "n" && userChoiceBigLetters === "y"){
+        for (i = 0; i < userChoiceLength; i++){
+          ar.push(newArray6[Math.floor(Math.random() * newArray6.length)]); 
+        }
+      }
+      if(userChoiceSymbols === "y"  && userChoiceNumbers === "y" && userChoiceSmallLetters === "n" && userChoiceBigLetters === "n"){
+        for (i = 0; i < userChoiceLength; i++){
+          ar.push(newArray7[Math.floor(Math.random() * newArray7.length)]); 
+        }
+      }
+      if(userChoiceSymbols === "n"  && userChoiceNumbers === "n" && userChoiceSmallLetters === "y" && userChoiceBigLetters === "y"){
+        for (i = 0; i < userChoiceLength; i++){
+          ar.push(newArray8[Math.floor(Math.random() * newArray8.length)]); 
+        }
+      }
+      if(userChoiceSymbols === "n"  && userChoiceNumbers === "y" && userChoiceSmallLetters === "y" && userChoiceBigLetters === "n"){
+        for (i = 0; i < userChoiceLength; i++){
+          ar.push(newArray9[Math.floor(Math.random() * newArray9.length)]); 
+        }
+      }
+      if(userChoiceSymbols === "n"  && userChoiceNumbers === "y" && userChoiceSmallLetters === "n" && userChoiceBigLetters === "y"){
+        for (i = 0; i < userChoiceLength; i++){
+          ar.push(newArray10[Math.floor(Math.random() * newArray10.length)]); 
+        }
+      }
+    
+      //if user choose 1
      if((userChoiceSymbols === "n"  && userChoiceNumbers === "n" && userChoiceSmallLetters === "n" && userChoiceBigLetters === "y")){
       for (i = 0; i < userChoiceLength; i++){
         ar.push(bigLetters[Math.floor(Math.random() * bigLetters.length)]); 
@@ -79,22 +153,7 @@ function generatePassword(){
         }
       }
   
-  
-
-    
-    
-
-userChoiceSmallLetters
-userChoiceBigLetters
-userChoiceSymbols
-userChoiceNumbers
-
-    var newArray = symbols.concat(numbers);
-    console.log(newArray)
-
-    // getting userchoice to fill empty array
-    
-      // taking commas out of ar array
+      // taking commas out of ar array and returning it
       
     return ar.join("");
     
@@ -113,4 +172,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword)
