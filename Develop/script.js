@@ -19,7 +19,7 @@ function generatePassword(){
   //create an empty array
   var ar = [];
   //making sure user chooses between 8 and 128
-    while ( userChoiceLength < 8 || userChoiceLength > 128 || isNaN(userChoiceLength) ){
+    while ( userChoiceLength < 8 || userChoiceLength > 129 || isNaN(userChoiceLength) ){
     alert( "please choose again");
     userChoiceLength= prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!");
     } 
