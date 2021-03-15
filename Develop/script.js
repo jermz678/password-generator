@@ -13,14 +13,14 @@ var smallLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
 var bigLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 //prompts for user choices
-var userChoiceLength = prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!")
-var userChoiceBigLetters = prompt("Would you like uppercase letters in your password? Type Y for yes, and N for no. ");
-var userChoiceSmallLetters = prompt("Would you like lowercase letter in your password? Type Y for yes, and N for no. ");
-var userChoiceNumbers = prompt("Would you like numbers in your password? Type Y for yes, and N for no. ");
-var userChoiceSymbols = prompt("would you like symbols in your password?Type Y for yes, and N for no. ");
+
+
+
+
 
 //creating password based on choices
 function generatePassword(){
+  var userChoiceLength = prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!");
   //create an empty array
   var ar = [];
   
@@ -30,29 +30,43 @@ function generatePassword(){
     userChoiceLength= prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!");
     } 
     // choosing yes or no for each prompt or looping back to same question
-    while ( userChoiceBigLetters != "y" && userChoiceBigLetters != "Y" && userChoiceBigLetters != "n" && userChoiceBigLetters != "N"){
-    alert ( "please choose again");
-    userChoiceBigLetters = prompt("Would you like uppercase letters in your password? Type Y for yes, and N for no. ");
+    //big letters prompt and while loop
+    var userPromptBigLetters = prompt("Would you like uppercase letters in your password? Type Y for yes, and N for no. ");
+    userChoiceBigLetters = userPromptBigLetters.toLowerCase();
+    while ( userChoiceBigLetters !== "y" &&  userChoiceBigLetters !== "n" ){
+        alert ( "please choose again");
+         userChoiceBigLetters = prompt("Would you like uppercase letters in your password? Type Y for yes, and N for no. ");
     }
-
-    while ( userChoiceSmallLetters != "y" && userChoiceSmallLetters != "Y" && userChoiceSmallLetters != "n" && userChoiceSmallLetters != "N"){
-      alert ( "please choose again");
-      userChoiceSmallLetters = prompt("Would you like lower letters in your password? Type Y for yes, and N for no. ");
-    }
-
-    while ( userChoiceNumbers != "y" && uuserChoiceNumbers != "Y" && userChoiceNumbers != "n" && uuserChoiceNumbers != "N"){
+    var userPromptSmallLetters = prompt("Would you like lowercase letter in your password? Type Y for yes, and N for no. ");
+    userChoiceSmallLetters = userPromptSmallLetters.toLowerCase();
+    while ( userChoiceSmallLetters  !== "y" &&  userChoiceSmallLetters !== "n" ){
+        alert ( "please choose again");
+        userChoiceSmallLetters = prompt("Would you like lower letters in your password? Type Y for yes, and N for no. ");
+    } 
+    var userPromptNumbers = prompt("Would you like numbers in your password? Type Y for yes, and N for no. ");
+    userChoiceNumbers = userPromptNumbers.toLowerCase();
+   while ( userChoiceNumbers !== "y"  && userChoiceNumbers !== "n" ){
         alert ( "please choose again");
         userChoiceNumbers = prompt("Would you like numbers in your password? Type Y for yes, and N for no. ");
     }
-    while ( userChoiceSymbols != "y" && userChoiceSymbols != "Y" && userChoiceSymbols != "n" && userChoiceSymbols != "N"){
-          alert ( "please choose again");
-          userChoiceSymbols = prompt("Would you like symbols in your password? Type Y for yes, and N for no. ");
+    var userPromptSymbols = prompt("would you like symbols in your password?Type Y for yes, and N for no. ");
+    userChoiceSymbols = userPromptSymbols.toLowerCase();
+    while ( userChoiceSymbols != "y" && userChoiceSymbols != "n" ){
+        alert ( "please choose again");
+        userChoiceSymbols = prompt("Would you like symbols in your password? Type Y for yes, and N for no. ");
+    }
+    if(userChoiceSymbols === "n"  && userChoiceNumbers === "n" && userChoiceSmallLetters === "n" && userChoiceBigLetters === "n"){
+        alert("sorry, we can not make you a password.  Please reload page and try again")
+    }
+    for (i = 0; i > userChoiceLength; i++){
+      ar.push(symbols[Math.floor(Math.random() * symbols.length)]) + ar.push(numbers[Math.floor(Math.random() * numbers.length)]); 
     }
 
+
+    var newArray = symbols.concat(numbers);
+console.log(newArray)
     // getting userchoice to fill empty array
-    for (i = 0; i < userChoiceLength; i++){
-      ar.push(allCharacters[Math.floor(Math.random() * allCharacters.length)]); 
-    }
+    
       // taking commas out of ar array
       console.log(ar);
     return ar.join("");
@@ -63,10 +77,6 @@ console.log(generatePassword())
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-
-
- 
-
 
 // Write password to the #password input
 function writePassword() {
