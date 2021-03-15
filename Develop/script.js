@@ -12,12 +12,6 @@ var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var smallLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var bigLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-//prompts for user choices
-
-
-
-
-
 //creating password based on choices
 function generatePassword(){
   var userChoiceLength = prompt("Please choose between 8 and 128 characters for your password! Type in your number choice!");
@@ -58,9 +52,7 @@ function generatePassword(){
     if(userChoiceSymbols === "n"  && userChoiceNumbers === "n" && userChoiceSmallLetters === "n" && userChoiceBigLetters === "n"){
         alert("sorry, we can not make you a password.  Please reload page and try again")
     }
-    for (i = 0; i > userChoiceLength; i++){
-      ar.push(symbols[Math.floor(Math.random() * symbols.length)]) + ar.push(numbers[Math.floor(Math.random() * numbers.length)]); 
-    }
+    
 
 
     var newArray = symbols.concat(numbers);
@@ -73,7 +65,7 @@ console.log(newArray)
     
 };
 
-console.log(generatePassword())
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
