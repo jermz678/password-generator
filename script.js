@@ -60,6 +60,7 @@ function generatePassword(){
       for (i = 0; i < userChoiceLength; i++){
         ar.push(allCharacters[Math.floor(Math.random() * allCharacters.length)]); 
       }
+      
     }
 
     //if user chooses 3 
@@ -156,7 +157,8 @@ function generatePassword(){
       }
   
       // taking commas out of ar array and returning it
-      
+      console.log(ar);
+
     return ar.join("");
     
 };
