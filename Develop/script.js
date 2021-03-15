@@ -61,6 +61,7 @@ function generatePassword(){
         ar.push(allCharacters[Math.floor(Math.random() * allCharacters.length)]); 
       }
     }
+
     //if user chooses 3 
     //creating new arrays based on what user chooses .
     var newArray = symbols.concat(numbers, smallLetters);
@@ -88,6 +89,7 @@ function generatePassword(){
           ar.push(newArray4[Math.floor(Math.random() * newArray4.length)]); 
         }
       }
+      
       //if user chooses 2
       //creating new arrays based on what user chooses
       var newArray5 = symbols.concat(smallLetters)
